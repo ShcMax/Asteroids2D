@@ -7,7 +7,7 @@ namespace Asteroids
 
     public interface IEnemyFactory
     {
-        Enemy Create(Health hp);
+        public Enemy Create(Health hp);
     }
 
 }
