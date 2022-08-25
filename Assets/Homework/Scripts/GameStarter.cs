@@ -14,6 +14,7 @@ namespace Asteroids
             enemy.transform.position = Vector3.one;
             enemy.gameObject.SetActive(true);
 
+
             Enemy.CreateAsteroidEnemy(new Health(100, 100));
             IEnemyFactory factory = new AsteroidFactory();
             factory.Create(new Health(100, 100));
