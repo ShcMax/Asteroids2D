@@ -5,18 +5,18 @@ namespace Builder.Scripts
     public class BuilderExample : MonoBehaviour
     {
         [SerializeField]
-        private Sprite _view;
+        private Sprite _view;        
 
 
         [ContextMenu("Test Builder")]
-        private void TestBuilder()
+        public void TestBuilder()
         {
             var gameObjectBuilder = new GameObjectBuilder();
 
             var buildResult = gameObjectBuilder
-                .Rigidbody2D(1f)
+                .Rigidbody2D(1f, 0f)
                 .Visual
-                .Name("Builder")
+                .Name("Bullet")
                 .Sprite(_view)
                 .Physics
                 .BoxCollider2D();
@@ -30,7 +30,7 @@ namespace Builder.Scripts
             var fluentGameObject = new GameObject()
                 .SetName("Fluent")
                 .AddBoxCollider2D()
-                .AddRigidbody2D(1f)
+                .AddRigidbody2D(1f, 0f)
                 .AddSprite(_view);
 
             Debug.Log("BuilderExample.TestFluentBuilder: fluentGameObject = " + fluentGameObject);

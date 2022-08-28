@@ -10,10 +10,11 @@ namespace Builder.Scripts
             return gameObject;
         }
 
-        public static GameObject AddRigidbody2D(this GameObject gameObject, float mass)
+        public static GameObject AddRigidbody2D(this GameObject gameObject, float mass, float gravity)
         {
             var rigidbody2D = gameObject.GetOrAddComponent<Rigidbody2D>();
             rigidbody2D.mass = mass;
+            rigidbody2D.gravityScale = gravity;
             return gameObject;
         }
 

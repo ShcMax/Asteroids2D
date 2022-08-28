@@ -267,7 +267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1405000511023496768, guid: 6ea22a3d3b2f31d45bcbc8622c507749, type: 3}
       propertyPath: m_GravityScale
-      value: 0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2083981514558178642, guid: 6ea22a3d3b2f31d45bcbc8622c507749, type: 3}
       propertyPath: m_Enabled
@@ -326,6 +326,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8062341170814826572, guid: 6ea22a3d3b2f31d45bcbc8622c507749, type: 3}
+      propertyPath: _speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062341170814826572, guid: 6ea22a3d3b2f31d45bcbc8622c507749, type: 3}
       propertyPath: _barrel
       value: 
       objectReference: {fileID: 1368788323}
@@ -334,8 +338,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6751744191309896953, guid: 844f284c78746e74e89a5e42b9ec1aa2, type: 3}
     - target: {fileID: 8062341170814826572, guid: 6ea22a3d3b2f31d45bcbc8622c507749, type: 3}
+      propertyPath: _sprite
+      value: 
+      objectReference: {fileID: -3805506412197019016, guid: d691229fc9ccbbe47954450298513db0, type: 3}
+    - target: {fileID: 8062341170814826572, guid: 6ea22a3d3b2f31d45bcbc8622c507749, type: 3}
+      propertyPath: example
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062341170814826572, guid: 6ea22a3d3b2f31d45bcbc8622c507749, type: 3}
       propertyPath: _moveForce
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062341170814826572, guid: 6ea22a3d3b2f31d45bcbc8622c507749, type: 3}
+      propertyPath: _acceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8062341170814826572, guid: 6ea22a3d3b2f31d45bcbc8622c507749, type: 3}
+      propertyPath: builderExample
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ea22a3d3b2f31d45bcbc8622c507749, type: 3}

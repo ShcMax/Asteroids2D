@@ -16,12 +16,14 @@ namespace Builder.Scripts
             _gameObject = gameObject;
         }
         
-        public GameObjectBuilder Rigidbody2D(float mass)
+        public GameObjectBuilder Rigidbody2D(float mass, float gravity)
         {
             var component = GetOrAddComponent<Rigidbody2D>();
             component.mass = mass;
+            component.gravityScale = gravity;
             return this;
         }
+
 
         public GameObjectVisualBuilder Visual => new GameObjectVisualBuilder(_gameObject);
         public GameObjectPhysicsBuilder Physics => new GameObjectPhysicsBuilder(_gameObject);
@@ -61,7 +63,7 @@ namespace Builder.Scripts
             var component = GetOrAddComponent<SpriteRenderer>();
             component.sprite = sprite;
             return this;
-        }
+        }        
 
         // jTODO Move to separate class
         private T GetOrAddComponent<T>() where T : Component

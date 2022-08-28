@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Builder.Scripts;
 
 namespace Asteroids
 {
@@ -13,6 +14,9 @@ namespace Asteroids
         [SerializeField] private Transform _barrel;
         [SerializeField] private float _force;
         [SerializeField] private float _moveForce;
+        
+        private Example example;
+        [SerializeField] private Sprite _sprite;
 
         private Camera _camera;
         private Ship _ship;
@@ -22,7 +26,8 @@ namespace Asteroids
         private void Awake()
         {
             _camera = Camera.main;
-            _playerRigidbody = GetComponent<Rigidbody2D>();            
+            _playerRigidbody = GetComponent<Rigidbody2D>();           
+            example = new Example();
         }
         private void Start()
         {
@@ -36,23 +41,24 @@ namespace Asteroids
             var direction = Input.mousePosition - _camera.WorldToScreenPoint(transform.position);
             _ship.Rotation(direction);
 
-            //_ship.Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Time.deltaTime);
+            _ship.Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Time.deltaTime);
 
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                //_ship.AddAcceleration();
-                PhysicsMove(direction);
+                _ship.AddAcceleration();                
             }
 
-            //if (Input.GetKeyUp(KeyCode.LeftShift))
-            //{
-            //    _ship.RemoveAcceleration();
-            //}
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                _ship.RemoveAcceleration();
+            }
 
             if (Input.GetButtonDown("Fire1"))
             {
-                var temAmmunition = Instantiate(_bullet, _barrel.position, _barrel.rotation);
-                temAmmunition.AddForce(_barrel.up * _force);
+                example.Build(_sprite, _barrel);
+                
+                //var temAmmunition = Instantiate(_bullet, _barrel.position, _barrel.rotation);
+                //temAmmunition.AddForce(_barrel.up * _force);
             }
         }
 
@@ -66,10 +72,6 @@ namespace Asteroids
             {
                 _hp--;
             }
-        }
-        public void PhysicsMove(Vector3 _direction)
-        {
-            _playerRigidbody.AddForce(_direction * _moveForce, ForceMode2D.Force);
-        }
+        }        
     }
 }
