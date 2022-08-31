@@ -1,15 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace Prototype.Scripts
 {
-    public class PrototypeExample : MonoBehaviour
+    public class PrototypeExample : MonoBehaviour, ISerializationCallbackReceiver
     {
+
+        public List<int> _keys = new List<int> { 3, 4, 5 };
+        public List<string> _values = new List<string> {"M","A","X" };
+
+        public Dictionary<int, string> _myDictionary = new Dictionary<int, string>();
+             
+
         [SerializeField]
         private MyCloneableObject _origin;
 
         int count = 5;
         float timer = 2;
-        float _timeEnd = 0;
+        float _timeEnd = 0;       
 
         private void Update()
         {
@@ -66,5 +76,34 @@ namespace Prototype.Scripts
         //    var newObject = Instantiate(_origin);
         //    newObject.transform.position += Vector3.left;
         //}
+
+        public void OnBeforeSerialize()
+        {
+            _keys.Clear();
+            _values.Clear();
+
+            foreach (var kvp in _myDictionary)
+            {
+                _keys.Add(kvp.Key);
+                _values.Add(kvp.Value);
+            }
+        }
+
+        public void OnAfterDeserialize()
+        {
+            _myDictionary = new Dictionary<int, string>();
+            for(int i = 0; i != Math.Min(_keys.Count, _values.Count); i++)
+            {
+                _myDictionary.Add(_keys[i], _values[i]);
+            }
+        }
+
+        void Info()
+        {
+            foreach (var kvp in _myDictionary)
+            {
+                Debug.Log("Key" + kvp.Key + "value" + kvp.Value);
+            }
+        }
     }
 }
