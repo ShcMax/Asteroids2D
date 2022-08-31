@@ -69,5 +69,10 @@ namespace Asteroids
         {
             Health = hp;
         }
+
+        private void OnCollisionEnter(Collision other)
+        {
+            Destroy(gameObject);
+        }
     }
 }
