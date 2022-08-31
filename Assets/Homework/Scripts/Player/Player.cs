@@ -55,7 +55,7 @@ namespace Asteroids
 
             if (Input.GetButtonDown("Fire1"))
             {
-                example.Build(_sprite, _barrel);
+                example.Build(_sprite, _barrel, direction);
                 
                 //var temAmmunition = Instantiate(_bullet, _barrel.position, _barrel.rotation);
                 //temAmmunition.AddForce(_barrel.up * _force);

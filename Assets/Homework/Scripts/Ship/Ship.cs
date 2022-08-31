@@ -34,7 +34,6 @@ namespace Asteroids
                 accelerationMove.AddAcceleration();
             }
         }
-
         public void RemoveAcceleration()
         {
             if(_moveImplementation is AccelerationMove accelerationMove)

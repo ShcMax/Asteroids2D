@@ -26,10 +26,10 @@ namespace Asteroids
             return gameObject;
         } 
 
-        public static GameObject AddForce(this GameObject gameObject, float force)
+        public static GameObject AddForce(this GameObject gameObject, float force, Vector2 _direction)
         {
             var component = gameObject.GetOrAddComponent<Rigidbody2D>();
-            component.AddForce(Vector2.down * force, ForceMode2D.Impulse);           
+            component.AddForce(_direction * force, ForceMode2D.Impulse);           
             return gameObject;
         }
 

@@ -7,6 +7,11 @@ namespace Asteroids
 {
     internal sealed class GameStarter : MonoBehaviour
     {
+        [SerializeField]
+        private float max, current;
+        [SerializeField]
+        private int capacityPool;
+        
         private void Start()
         {
             EnemyPool enemyPool = new EnemyPool(5);
@@ -20,6 +25,10 @@ namespace Asteroids
             factory.Create(new Health(100, 100));
             Enemy.Factory = factory;
             Enemy.Factory.Create(new Health(100, 100));
+
+
+            var gameService = new GameService();
+            gameService.Start(max, current, capacityPool);
         }
     }
 }
