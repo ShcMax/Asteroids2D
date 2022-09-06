@@ -5,8 +5,6 @@ using UnityEngine;
 
 namespace Asteroids
 {
-
-
     internal sealed class Example : MonoBehaviour
     {
         [SerializeField]
