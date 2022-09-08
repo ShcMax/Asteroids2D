@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestPlayer
+namespace Player.Modifier
 {
-    public string Name;
-    public int Attack;
-    public int Defense;
-
-    public TestPlayer(string name, int attack, int defense)
+    public class TestPlayer
     {
-        Name = name;
-        Attack = attack;
-        Defense = defense;
+        public string Name;
+        public int Attack;
+        public int Defense;
+
+        public TestPlayer(string name, int attack, int defense)
+        {
+            Name = name;
+            Attack = attack;
+            Defense = defense;
+        }
     }
 }

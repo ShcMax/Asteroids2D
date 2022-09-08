@@ -2,22 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-internal sealed class AddDefenseModifier : PlayerModifier
+namespace Player.Modifier
 {
-    private readonly int _maxDefense;
-
-    public AddDefenseModifier(TestPlayer player, int maxDefense)
-        : base(player)
+    internal sealed class AddDefenseModifier : PlayerModifier
     {
-        _maxDefense = maxDefense;
-    }
+        private readonly int _maxDefense;
 
-    public override void Handle()
-    {
-        if(_player.Defense <= _maxDefense)
+        public AddDefenseModifier(TestPlayer player, int maxDefense)
+            : base(player)
         {
-            _player.Defense++;
+            _maxDefense = maxDefense;
         }
-        base.Handle();
+
+        public override void Handle()
+        {
+            if (_player.Defense <= _maxDefense)
+            {
+                _player.Defense++;
+            }
+            base.Handle();
+        }
     }
 }

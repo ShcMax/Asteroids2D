@@ -2,28 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-internal class PlayerModifier
+namespace Player.Modifier
 {
-    protected TestPlayer _player;
-    protected PlayerModifier Next;
 
-    public PlayerModifier(TestPlayer player)
+
+    internal class PlayerModifier
     {
-        _player = player;
-    }
+        protected TestPlayer _player;
+        protected PlayerModifier Next;
 
-    public void Add(PlayerModifier cm)
-    {
-        if(Next != null)
+        public PlayerModifier(TestPlayer player)
         {
-            Next.Add(cm);
+            _player = player;
         }
-        else
-        {
-            Next = cm;
-        }
-    }
 
-    public virtual void Handle() => Next?.Handle();
-    
+        public void Add(PlayerModifier cm)
+        {
+            if (Next != null)
+            {
+                Next.Add(cm);
+            }
+            else
+            {
+                Next = cm;
+            }
+        }
+
+        public virtual void Handle() => Next?.Handle();
+
+    }
 }
