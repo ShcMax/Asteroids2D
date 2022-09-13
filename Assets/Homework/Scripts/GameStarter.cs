@@ -51,18 +51,9 @@ namespace Asteroids
             _mainCamera = Camera.main;
             var listenerHitShowDamage = new ListenerHitShowDamage();
             listenerHitShowDamage.Add(Enemy);
-        }
 
-        private void Update()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {                
-                if (Physics.Raycast(_mainCamera.ScreenPointToRay(Input.mousePosition), out var hit, _dedicateDistance))
-                    if (hit.collider.TryGetComponent<IHit>(out var enemy))
-                    {
-                        enemy.Hit(Damage);
-                    }
-            }
-        }
+
+            Enemy.Hit(_dedicateDistance);
+        }        
     }
 }

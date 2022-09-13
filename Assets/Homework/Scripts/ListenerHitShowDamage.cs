@@ -18,7 +18,7 @@ namespace Asteroids
 
         private void ValueOnOnHitChange(float damage)
         {
-            Debug.Log(damage + "Enemy destroy");
+            Debug.Log(damage);
         }
     }
 }

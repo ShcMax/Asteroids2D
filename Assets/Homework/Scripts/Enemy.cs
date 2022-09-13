@@ -44,7 +44,7 @@ namespace Asteroids
         public void Hit(float damage)
         {
             OnHitChange?.Invoke(damage);
-            Debug.Log("Enemy destroy");
+            Debug.Log("Enemy destroy" + "damage = "+ damage);
         }
 
         public static Asteroid CreateAsteroidEnemy(Health hp)
@@ -78,15 +78,6 @@ namespace Asteroids
         public void DependencyInjectHealth(Health hp)
         {
             Health = hp;
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("Bullet"))
-            {
-                float damage = 1;
-                Hit(damage);
-            }
-        }
+        }        
     }
 }
