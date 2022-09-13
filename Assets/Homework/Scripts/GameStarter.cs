@@ -16,6 +16,11 @@ namespace Asteroids
         [SerializeField]
         private int capacityPool;
 
+        public Enemy Enemy;
+        public float Damage;
+        private Camera _mainCamera;
+        private float _dedicateDistance = 20.0f;
+
         private void Start()
         {
             EnemyPool enemyPool = new EnemyPool(5);
@@ -42,6 +47,22 @@ namespace Asteroids
             root.Add(new AddAttackModifier(player, 10));
             root.Add(new AddDefenseModifier(player, 100));
             root.Handle();
+
+            _mainCamera = Camera.main;
+            var listenerHitShowDamage = new ListenerHitShowDamage();
+            listenerHitShowDamage.Add(Enemy);
+        }
+
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {                
+                if (Physics.Raycast(_mainCamera.ScreenPointToRay(Input.mousePosition), out var hit, _dedicateDistance))
+                    if (hit.collider.TryGetComponent<IHit>(out var enemy))
+                    {
+                        enemy.Hit(Damage);
+                    }
+            }
         }
     }
 }

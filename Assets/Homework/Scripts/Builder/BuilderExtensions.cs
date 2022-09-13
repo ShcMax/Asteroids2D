@@ -6,9 +6,10 @@ namespace Asteroids
 {
     public static partial class BuilderExtensions
     {
-        public static GameObject SetName (this GameObject gameObject, string name)
+        public static GameObject SetName (this GameObject gameObject, string name, string bullet)
         {
             gameObject.name = name;
+            gameObject.tag = bullet;
             return gameObject;
         }
 

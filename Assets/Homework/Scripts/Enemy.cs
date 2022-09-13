@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using Asteroids.Object_Pool;
 
 namespace Asteroids
 {
-    internal abstract class Enemy : MonoBehaviour
+    internal abstract class Enemy : MonoBehaviour, IHit
     {
+        public event Action<float> OnHitChange = delegate { };
+
+
         public static IEnemyFactory Factory;
         private Transform _rotPool;
         private Health _health;
@@ -37,6 +41,12 @@ namespace Asteroids
                 return _rotPool;
             }
         }
+        public void Hit(float damage)
+        {
+            OnHitChange?.Invoke(damage);
+            Debug.Log("Enemy destroy");
+        }
+
         public static Asteroid CreateAsteroidEnemy(Health hp)
         {
             var enemy = Instantiate(Resources.Load<Asteroid>("Enemy/Asteroid"));
@@ -70,9 +80,13 @@ namespace Asteroids
             Health = hp;
         }
 
-        private void OnCollisionEnter(Collision other)
+        private void OnTriggerEnter(Collider other)
         {
-            Destroy(gameObject);
+            if (other.CompareTag("Bullet"))
+            {
+                float damage = 1;
+                Hit(damage);
+            }
         }
     }
 }

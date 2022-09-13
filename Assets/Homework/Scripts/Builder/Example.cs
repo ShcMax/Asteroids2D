@@ -13,7 +13,7 @@ namespace Asteroids
 
         public void Build(Sprite _sprite, Transform transform, Vector2 direction)
         {            
-            new GameObject().SetName("Bullet").SetTransform(transform).AddBoxCollider2D().AddRigidbody2D(1f, 0f).AddSprite(_sprite).AddForce(0.1f, direction);
+            new GameObject().SetName("Bullet", "Bullet").SetTransform(transform).AddBoxCollider2D().AddRigidbody2D(1f, 0f).AddSprite(_sprite).AddForce(0.1f, direction);
         }
     }
 }
