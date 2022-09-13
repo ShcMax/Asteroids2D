@@ -480,6 +480,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _numLives: 5
   _inventory: []
+--- !u!114 &542971638 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 443477877921771488, guid: f29c0426144fde544902273e6c6ff8b4, type: 3}
+  m_PrefabInstance: {fileID: 1418662520}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542971635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0f95f4dffac80498741c7062cf2fbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &836188124
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +884,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5086502408432776532, guid: f29c0426144fde544902273e6c6ff8b4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7217544820515428004, guid: f29c0426144fde544902273e6c6ff8b4, type: 3}
       propertyPath: m_Name
       value: Asteroid
@@ -1158,6 +1173,8 @@ MonoBehaviour:
   max: 0
   current: 0
   capacityPool: 0
+  Enemy: {fileID: 542971638}
+  Damage: 0
 --- !u!4 &1803338192
 Transform:
   m_ObjectHideFlags: 0
