@@ -20,9 +20,7 @@ namespace Asteroids
         public float Damage;
         private Camera _mainCamera;
         private float _dedicateDistance = 20.0f;
-
-        [SerializeField] Text text;
-        private string s;
+        string s;
 
         private void Start()
         {
@@ -54,12 +52,8 @@ namespace Asteroids
             _mainCamera = Camera.main;
             var listenerHitShowDamage = new ListenerHitShowDamage();
             listenerHitShowDamage.Add(Enemy);
-
-            s = "Damage " + _dedicateDistance.ToString() + ": Enemy destroy";
+            
             Enemy.Hit(_dedicateDistance, s);
-            text.text = s;
-            
-            
         }        
     }
 }

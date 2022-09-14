@@ -6,6 +6,7 @@ namespace Asteroids
 {
     public sealed class ListenerHitShowDamage
     {
+        string s;
         public void Add(IHit value)
         {
             value.OnHitChange += ValueOnOnHitChange;
@@ -16,9 +17,9 @@ namespace Asteroids
             value.OnHitChange -= ValueOnOnHitChange;
         }
 
-        private void ValueOnOnHitChange(float damage, string s)
+        private void ValueOnOnHitChange(float damage)
         {
-            Debug.Log(damage);
+            s = damage.ToString() + "enemy";
         }
     }
 }

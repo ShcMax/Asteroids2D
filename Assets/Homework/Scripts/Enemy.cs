@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Asteroids.Object_Pool;
+using UnityEngine.UI;
 
 namespace Asteroids
 {
     internal abstract class Enemy : MonoBehaviour, IHit
     {
-        public event Action<float, string> OnHitChange = delegate { };
+        public event Action<float> OnHitChange = delegate { };
 
 
         public static IEnemyFactory Factory;
         private Transform _rotPool;
         private Health _health;
+
+        [SerializeField]
+        Text text;        
 
         public Health Health
         {
@@ -42,11 +46,11 @@ namespace Asteroids
             }
         }
         public void Hit(float damage, string s)
-        {
-            s = damage.ToString() + "Enemy destroy";
-            OnHitChange?.Invoke(damage, s);            
-        }
-
+        {   
+            OnHitChange?.Invoke(damage);
+            s = damage.ToString() + " enemy destroy";
+            text.text = s;
+        }       
         public static Asteroid CreateAsteroidEnemy(Health hp)
         {
             var enemy = Instantiate(Resources.Load<Asteroid>("Enemy/Asteroid"));
