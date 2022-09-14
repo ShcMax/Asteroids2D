@@ -14,10 +14,7 @@ namespace Asteroids
 
         public static IEnemyFactory Factory;
         private Transform _rotPool;
-        private Health _health;
-
-        [SerializeField]
-        Text text;        
+        private Health _health;              
 
         public Health Health
         {
@@ -45,7 +42,7 @@ namespace Asteroids
                 return _rotPool;
             }
         }
-        public void Hit(float damage, string s)
+        public void Hit(float damage, string s, Text text)
         {   
             OnHitChange?.Invoke(damage);
             s = damage.ToString() + " enemy destroy";

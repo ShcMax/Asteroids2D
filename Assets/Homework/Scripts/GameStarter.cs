@@ -20,6 +20,9 @@ namespace Asteroids
         public float Damage;
         private Camera _mainCamera;
         private float _dedicateDistance = 20.0f;
+
+        [SerializeField]
+        Text text;
         string s;
 
         private void Start()
@@ -53,7 +56,7 @@ namespace Asteroids
             var listenerHitShowDamage = new ListenerHitShowDamage();
             listenerHitShowDamage.Add(Enemy);
             
-            Enemy.Hit(_dedicateDistance, s);
+            Enemy.Hit(_dedicateDistance, s, text);
         }        
     }
 }

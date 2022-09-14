@@ -1259,6 +1259,7 @@ MonoBehaviour:
   capacityPool: 0
   Enemy: {fileID: 542971638}
   Damage: 0
+  text: {fileID: 1144144835}
 --- !u!4 &1803338192
 Transform:
   m_ObjectHideFlags: 0
