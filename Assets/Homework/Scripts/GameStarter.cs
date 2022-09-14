@@ -21,6 +21,9 @@ namespace Asteroids
         private Camera _mainCamera;
         private float _dedicateDistance = 20.0f;
 
+        [SerializeField] Text text;
+        private string s;
+
         private void Start()
         {
             EnemyPool enemyPool = new EnemyPool(5);
@@ -52,8 +55,11 @@ namespace Asteroids
             var listenerHitShowDamage = new ListenerHitShowDamage();
             listenerHitShowDamage.Add(Enemy);
 
-
-            Enemy.Hit(_dedicateDistance);
+            s = "Damage " + _dedicateDistance.ToString() + ": Enemy destroy";
+            Enemy.Hit(_dedicateDistance, s);
+            text.text = s;
+            
+            
         }        
     }
 }

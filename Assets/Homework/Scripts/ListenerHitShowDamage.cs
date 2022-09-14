@@ -16,7 +16,7 @@ namespace Asteroids
             value.OnHitChange -= ValueOnOnHitChange;
         }
 
-        private void ValueOnOnHitChange(float damage)
+        private void ValueOnOnHitChange(float damage, string s)
         {
             Debug.Log(damage);
         }

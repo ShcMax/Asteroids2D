@@ -8,7 +8,7 @@ namespace Asteroids
 {
     internal abstract class Enemy : MonoBehaviour, IHit
     {
-        public event Action<float> OnHitChange = delegate { };
+        public event Action<float, string> OnHitChange = delegate { };
 
 
         public static IEnemyFactory Factory;
@@ -41,10 +41,10 @@ namespace Asteroids
                 return _rotPool;
             }
         }
-        public void Hit(float damage)
+        public void Hit(float damage, string s)
         {
-            OnHitChange?.Invoke(damage);
-            Debug.Log("Enemy destroy" + "damage = "+ damage);
+            s = damage.ToString() + "Enemy destroy";
+            OnHitChange?.Invoke(damage, s);            
         }
 
         public static Asteroid CreateAsteroidEnemy(Health hp)
