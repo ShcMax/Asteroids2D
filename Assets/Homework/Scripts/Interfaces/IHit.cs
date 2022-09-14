@@ -9,6 +9,6 @@ namespace Asteroids
     public interface IHit
     {
         event Action<float> OnHitChange;
-        void Hit(float damage, string s, Text text);      
+        void Hit(float damage, Text text);      
     }
 }

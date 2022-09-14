@@ -42,11 +42,10 @@ namespace Asteroids
                 return _rotPool;
             }
         }
-        public void Hit(float damage, string s, Text text)
+        public void Hit(float damage, Text text)
         {   
-            OnHitChange?.Invoke(damage);
-            s = damage.ToString() + " enemy destroy";
-            text.text = s;
+            OnHitChange?.Invoke(damage);            
+            text.text = damage.ToString() + " enemy destroy";
         }       
         public static Asteroid CreateAsteroidEnemy(Health hp)
         {

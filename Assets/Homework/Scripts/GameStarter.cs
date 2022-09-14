@@ -22,8 +22,7 @@ namespace Asteroids
         private float _dedicateDistance = 20.0f;
 
         [SerializeField]
-        Text text;
-        string s;
+        Text text;        
 
         private void Start()
         {
@@ -56,7 +55,7 @@ namespace Asteroids
             var listenerHitShowDamage = new ListenerHitShowDamage();
             listenerHitShowDamage.Add(Enemy);
             
-            Enemy.Hit(_dedicateDistance, s, text);
+            Enemy.Hit(_dedicateDistance, text);
         }        
     }
 }
